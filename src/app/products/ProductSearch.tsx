@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import CardComponent from "@/app/components/CardComponent";
+import { clearTimeout } from "timers";
 
 export default function ProductSearch() {
   const [search, setSearch] = useState("");
@@ -28,9 +29,11 @@ export default function ProductSearch() {
   // por que aca si se puede usar el async await?
 
   useEffect(() => {
-    // TODO: cuando carga el componente que haga un fetch para obtener todos los productos.
+    // TO DO: Debounce search handler 
     onSearch();
     
+    
+  // Cleanup  
   }, [search]);
 
   return (
@@ -52,7 +55,7 @@ export default function ProductSearch() {
 
       <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
         {/* Render all products when searchCompleted is true */}
-        {!isLoading &&
+        {!isLoading && 
           filteredProducts.map((product) => (
             <CardComponent
               id={product.id}
