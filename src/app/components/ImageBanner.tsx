@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function ImageBanner() {
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100 border rounded-lg overflow-hidden">
       <div className="mx-auto max-w-xl flex flex-col justify-center items-center gap-4 px-2 py-2 sm:px-4 sm:py-6 lg:max-w-7xl lg:flex-row lg:px-8">
         <div className="flex flex-col justify-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-7xl text-gray-700">
