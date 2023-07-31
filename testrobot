@@ -1,0 +1,33 @@
+Consignas
+El siguiente test va a ser similar al anterior. Va a ser una app de productos con un carrito de compras. Los pasos para completar el test son los siguientes:
+
+Páginas:
+/home
+/store
+/product/id
+/contact
+/about
+Home
+Utilizar `src/app/page.txt` para crear una landing de nuestra nueva marca de productos electrónicos llamada "TechZone"
+
+Secciones:
+
+1. Nav Bar: - Logo de la empresa ( o texto ) - Carrito que despliegue un modal/drawer en caso de tener productos en el carro
+
+2. Banner: horizontal con dos columnas. Una para imagen (public/bannner.jpg) y otra para texto.
+
+3. Featured products: Mostrar una fila de 4 o 2 productos (dependiendo el tamaño de la pantalla) de los productos destacados. pueden ser solo 2 productos random.
+
+4. Otro banner de un color llamativo que tenga un texto y un boton hacia la página del store
+
+5. Footer con links a página de /about, /contact, /store e información de la empresa (telefono, mail, dirección) y algún texto random tipo slogan
+
+Store
+La página de productos deberá tener:
+
+1. Una sección de filtrado. Debería poder filtrar por precio
+2. Una sección de buscador, donde busque por nombre del producto
+3. Listado de los productos encontrados. Si no hay filtro retorno todos productos disponibles. Aplicar paginación
+4. Cada producto deberá mostrarse en su propia productCard (title, image, price)y deberá tener un link para añadirlo al carro o para abrir su página de producto correspondiente (/product/[id])
+Product page
+Página individual de cada producto (/product/[id]). Deberá mostrar toda la información disponible del producto y un link para añadir al carro. El carro de momento solo será un context que puede ir agregando o removiendo elementos. Crearlo y conectarlo a cada componente que se vincule al carro
