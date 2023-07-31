@@ -9,7 +9,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
 
-        <div className="fixed top-0 left-0 w-full bg-white shadow-lg">
+        <div className="fixed top-0 left-0 w-full z-50">
         <ResponsiveAppBar/> 
         </div>
 
