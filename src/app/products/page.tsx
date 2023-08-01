@@ -2,6 +2,13 @@
 import ProductSearch from "./ProductSearch";
 
 export default function ProductsPage({children}) {
-  return <div><ProductSearch/> </div>;
+  return (
+
+    <div>
+      <ProductSearch/> 
+    </div>
+
+  );
   {children}
+
 }

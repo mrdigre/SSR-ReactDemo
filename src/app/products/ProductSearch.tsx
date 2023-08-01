@@ -34,7 +34,7 @@ export default function ProductSearch() {
     
     
   
-  }, []);
+  }, [search]);
 
   return (
     <div className="search-bar">

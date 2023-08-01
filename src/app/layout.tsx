@@ -13,8 +13,9 @@ export default function RootLayout({ children }) {
         <ResponsiveAppBar/> 
         </div>
 
-        <div className="flex flex-col items-center justify-center bg-gray-200 sm:mx-0 md:mx-8 lg:mx-12 ">
-          <div className="lg:max-w-7xl sm:max-w-sm md:max-w-md mx-auto px-6 py-12 bg-white rounded-lg shadow-lg">
+        <div className="flex flex-col items-stretch justify-center bg-gray-200">
+          <div className="container lg:max-w-7xl sm:max-w-sm md:max-w-md mx-auto flex flex-wrap justify-center items-stretch min-h-screen p-6 bg-white rounded-lg shadow-lg">
+                          
         {children}
           </div>
         </div>
