@@ -1,5 +1,7 @@
 // import Products from "../components/Products";
+import ProductSearch from "./ProductSearch";
 
-export default function ProductsPage() {
-  return <div>{/* { <Products />} */}</div>;
+export default function ProductsPage({children}) {
+  return <div><ProductSearch/> </div>;
+  {children}
 }

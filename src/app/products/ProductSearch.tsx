@@ -33,8 +33,8 @@ export default function ProductSearch() {
     onSearch();
     
     
-  // Cleanup  
-  }, [search]);
+  
+  }, []);
 
   return (
     <div className="search-bar">
