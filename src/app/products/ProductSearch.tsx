@@ -37,10 +37,10 @@ export default function ProductSearch() {
   }, [search]);
 
   return (
-    <div className="search-bar">
+    <div className="search-bar mt-16">
       <div>
         <input
-          className="px-5 py-1 w-2/3 sm:px-5 sm:py-3 flex-1 text-zinc-200 bg-zinc-800 focus:bg-black rounded-full focus:outline-none focus:ring-[1px] focus:ring-green-700 placeholder:text-zinc-400"
+          className="px-5 py-8 w-2/3 sm:px-5 sm:py-3 flex-1 text-zinc-200 bg-zinc-800 focus:bg-black rounded-full focus:outline-none focus:ring-[1px] focus:ring-green-700 placeholder:text-zinc-400"
           type="text"
           placeholder="What are you looking for?"
           value={search || ""}
@@ -48,9 +48,9 @@ export default function ProductSearch() {
         />
       </div>
       
-      <div>-----</div>
+     
 
-      {isLoading && (<div className="flex justify-center my-4"><span>Loading...</span></div>)}
+      {isLoading && (<div className="mt-2 flex justify-center my-4 text-gray-800"><span>Loading...</span></div>)}
       {(!isLoading && filteredProducts.length === 0) && <span>No products found</span>}
 
       <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">

@@ -3,7 +3,7 @@
 export default function ProductsLayout({ children }) {
   return (
     <>
-      <div >
+      <div>
         
         {children}
         
