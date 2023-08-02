@@ -1,16 +1,32 @@
 "use client";
 import { useState, useEffect } from "react";
 import CardComponent from "@/app/components/CardComponent";
-import { clearTimeout } from "timers";
+
+// default debounce function:
+const useDebounce = (value, delay) => {
+    const [debouncedValue, setDebouncedValue] = useState(value);
+  
+    useEffect(() => {
+      const handler = setTimeout(() => {
+        setDebouncedValue(value)
+      }, delay)
+  
+      return () => {
+        clearTimeout(handler)
+      }
+    }, [value, delay])
+  
+    return debouncedValue
+};
 
 export default function ProductSearch() {
   const [search, setSearch] = useState("");
   const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState<boolean >(false)
   
+  const debouncedSearch = useDebounce(search, 500);
 
   const onSearch = async (e: React.FormEvent) => {
-   // e.preventDefault();
     setIsLoading(true);
     const url = "http://localhost:3000/api/products";
     try {
@@ -29,12 +45,10 @@ export default function ProductSearch() {
   // por que aca si se puede usar el async await?
 
   useEffect(() => {
-    // TO DO: Debounce search handler 
-    onSearch();
-    
-    
-  
-  }, [search]);
+    if (debouncedSearch || search === "") {
+      onSearch();
+    }
+  }, [debouncedSearch, search]);
 
   return (
     <div className="mt-16 bg-black w-full">
