@@ -9,15 +9,21 @@ export default function RootLayout({ children }) {
       </head>
       <body>
 
+        <div className="fixed top-0 left-0 w-full z-50">
         <ResponsiveAppBar/> 
+        </div>
 
-        <div className="flex flex-col items-center justify-center sm:mx-0 md:mx-8 lg:mx-12 ">
-          <div className="lg:max-w-7xl sm:max-w-sm md:max-w-md mx-auto px-6 py-12 bg-white rounded-lg shadow-lg">
+        <div className="flex flex-col items-stretch justify-center bg-gray-200 mt-14">
+          <div className="container lg:max-w-7xl sm:max-w-sm md:max-w-md mx-auto flex flex-wrap justify-center items-stretch min-h-screen p-6 bg-white rounded-lg shadow-lg">
+                          
         {children}
           </div>
         </div>
+
+        <div className="w-full z-50">
+        <Footer/> 
+        </div>
         
-        <Footer/>
 
       </body>
     </html>

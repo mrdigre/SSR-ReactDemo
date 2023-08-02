@@ -6,7 +6,7 @@ const StoreBanner = async () => {
   const products = await getProducts({ take: 2 });
 
   return (
-    <div className="relative overflow-hidden bg-purple-500">
+    <div className="relative overflow-hidden bg-white">
       <div className="pb-32 pt-8 sm:pb-16 sm:pt-12 lg:pb-24 lg:pt-20">
         <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
           <div className="sm:max-w-lg">

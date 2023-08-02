@@ -1,4 +1,3 @@
-import Image from "next/image"
 
 const links = [
     { name: 'Learm about us', href: '#' },
@@ -9,14 +8,8 @@ const links = [
   
   export default function Footer() {
     return (
-      <div className="relative isolate overflow-hidden bg-gray-900 py-6 sm:py-8">
-        <Image
-          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
-          alt=""
-          className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
-          height={10000}
-          width={10000}
-        />
+      <div className="relative isolate overflow-hidden bg-gray-800 sm:py-4">
+        
         <div
           className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
           aria-hidden="true"
@@ -41,26 +34,30 @@ const links = [
             }}
           />
         </div>
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:mx-0">
+        
+        <div className="w-full ml-10 p-2 flex items-center">
+          <div className="flex items-center justify-center w-1/2">
             
-            <p className="mt-6 text-lg leading-8 text-gray-300">
+            <p className="text-lg leading-8 text-gray-300">
             Discover a world of possibilities with Tech Zone, 
             where technology meets convenience and innovation is just a click away.
             </p>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-            <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
+          
+          <div className="flex justify-center w-1/2">
+            <div className="grid grid-cols-1 text-base font-semibold text-white sm:grid-cols-2 md:flex lg:gap-x-12">
               {links.map((link) => (
-                <a key={link.name} href={link.href}>
-                  {link.name} <span aria-hidden="true">&rarr;</span>
-                </a>
+                <div key={link.name} className="flex items-center justify-center w-40">
+                  <a key={link.name} href={link.href}>
+                    {link.name} <span aria-hidden="true">&rarr;</span>
+                  </a>
+                </div>
               ))}
             </div>
-            
           </div>
         </div>
       </div>
-    )
-  }
+    
+  )
+}
   

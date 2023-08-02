@@ -9,7 +9,7 @@ import StoreBanner from "./components/StoreBanner";
 
 export default function HomePage({ children }) {
   return (
-    <div>
+    <div className="p-4">
       {<ImageBanner />}
       {/* @ts-expect-error Server Component */}
       
