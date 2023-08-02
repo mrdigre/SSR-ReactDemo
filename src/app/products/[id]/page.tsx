@@ -1,12 +1,16 @@
-import { getProduct } from "@/lib/prisma";
+
+import ProductPage from "./ProductPage"
+
+export default async function ProductHome(props: any){
 
 
-// export default async function ProductPage(props: any){
-//     const productId = props.params?.id;
-//     // const product = await getProduct(productId);
+    return (
+        <div className="mt-8 text-black">
+            
+           {<ProductPage />}
+
+        </div>
+    )
 
 
-//     return (
-//         <div>ProductPage {productId}</div>
-//     )
-// }
+}

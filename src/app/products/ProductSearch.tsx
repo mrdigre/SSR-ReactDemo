@@ -92,10 +92,12 @@ export default function ProductSearch() {
 // Actualizar valor de input -- ok
 // Como pasar ese valor de búsqueda a la api -- ok
 // Crer la api que obtenga esa búsqueda y devuelva valor --- ok
-// Cómo
+
 
 /**
  * TODO:
  * - Loading: mostrar cuando la api está cargando
  * - Error: Si hay un error de la api mostrar algún mensaje al usuario
- */
+  ok
+
+*/ 

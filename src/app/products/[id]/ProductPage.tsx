@@ -1,41 +1,38 @@
-import Image from 'next/image'
-import { getProduct } from "@/lib/prisma";
 
+import { getProducts } from "@/lib/prisma";
+import CardComponent from "@/app/components/CardComponent";
 
-
-// function classNames() {
-//     return classes.filter(Boolean).join(' ')
-//   }
 
 const ProductPage = async () => {
 
     
-  // const products = await getProduct();
+  const products = await getProducts();
 
-  // asdasdasd
+  
   return (
     
-    
-    
-    
-    
-    // <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-    //   {products.map((product) => (
-    //     <CardComponent
-    //       id={product.id}
-    //       key={product.id}
-    //       name={product.name}
-    //       title={product.title}
-    //       model={product.model}
-    //       description={product.description}
-    //       price={product.price}
-    //       image={product.image}
-    //     />
-    //   ))}
-    // </div>
+    <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+      {products.map((product) => (
+        <CardComponent
+          id={product.id}
+          key={product.id}
+          name={product.name}
+          title={product.title}
+          model={product.model}
+          description={product.description}
+          price={product.price}
+          image={product.image}
+        />
+      ))}
+    </div>
+
+  )
+}
+
+export default ProductPage;
 
 
-    <div>Product page</div>
+    // <div>Product page</div>
 
 
     // <div className="bg-white">
@@ -95,10 +92,9 @@ const ProductPage = async () => {
     // </div>
   
 
-  );
-};
 
-export default ProductPage;
+
+
 
 
 
