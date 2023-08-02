@@ -19,8 +19,11 @@ export default function RootLayout({ children }) {
         {children}
           </div>
         </div>
+
+        <div className="w-full z-50">
+        <Footer/> 
+        </div>
         
-        <Footer/>
 
       </body>
     </html>

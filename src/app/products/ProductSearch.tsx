@@ -16,7 +16,7 @@ export default function ProductSearch() {
     try {
       let response = await fetch(`${url}?q=${encodeURIComponent(search)}`);
       const data = await response.json();
-      const filteredProducts = data.data; // ya estaba definida esta variable en el useState?
+      const filteredProducts = data.data; 
       setFilteredProducts(filteredProducts);
       setIsLoading(false);
     } catch (e) {
@@ -37,10 +37,10 @@ export default function ProductSearch() {
   }, [search]);
 
   return (
-    <div className="search-bar mt-16">
-      <div>
+    <div className="mt-16 bg-black w-full">
+      <div className="relative w-full">
         <input
-          className="px-5 py-8 w-2/3 sm:px-5 sm:py-3 flex-1 text-zinc-200 bg-zinc-800 focus:bg-black rounded-full focus:outline-none focus:ring-[1px] focus:ring-green-700 placeholder:text-zinc-400"
+          className="px-5 py-8 w-full sm:px-5 sm:py-3 text-zinc-200 bg-zinc-800 focus:bg-black rounded-full focus:outline-none focus:ring-[1px] focus:ring-green-700 placeholder:text-zinc-400"
           type="text"
           placeholder="What are you looking for?"
           value={search || ""}
