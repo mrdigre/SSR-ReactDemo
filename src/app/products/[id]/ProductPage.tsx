@@ -1,12 +1,10 @@
 
 import { getProducts } from "@/lib/prisma";
 import CardComponent from "@/app/components/CardComponent";
-
+import { GetStaticProps, GetStaticPaths } from "next";
 
 const ProductPage = async () => {
-
-    
-  const products = await getProducts();
+  const products = await getProducts(  );
 
   
   return (
