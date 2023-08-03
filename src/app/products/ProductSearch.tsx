@@ -42,8 +42,6 @@ export default function ProductSearch() {
     } 
   };
 
-  // por que aca si se puede usar el async await?
-
   useEffect(() => {
     if (debouncedSearch || search === "") {
       onSearch();
@@ -51,7 +49,7 @@ export default function ProductSearch() {
   }, [debouncedSearch, search]);
 
   return (
-    <div className="mt-16 bg-black w-full">
+    <div className="mt-16 bg-white w-full">
       <div className="relative w-full">
         <input
           className="px-5 py-8 w-full sm:px-5 sm:py-3 text-zinc-200 bg-zinc-800 focus:bg-black rounded-full focus:outline-none focus:ring-[1px] focus:ring-green-700 placeholder:text-zinc-400"
@@ -65,9 +63,9 @@ export default function ProductSearch() {
      
 
       {isLoading && (<div className="mt-2 flex justify-center my-4 text-gray-800"><span>Loading...</span></div>)}
-      {(!isLoading && filteredProducts.length === 0) && <span>No products found</span>}
+      {(!isLoading && filteredProducts.length === 0) && <div className="mt-2 flex justify-center my-4 text-gray-800"><span>No products found</span></div>}
 
-      <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+      <div className="w-full mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
         {/* Render all products when searchCompleted is true */}
         {!isLoading && 
           filteredProducts.map((product) => (
