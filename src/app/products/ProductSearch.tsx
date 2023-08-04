@@ -52,7 +52,7 @@ export default function ProductSearch() {
     <div className="mt-16 bg-white w-full">
       <div className="relative w-full">
         <input
-          className="px-5 py-8 w-full sm:px-5 sm:py-3 text-zinc-200 bg-zinc-800 focus:bg-black rounded-full focus:outline-none focus:ring-[1px] focus:ring-green-700 placeholder:text-zinc-400"
+          className="px-5 py-2 w-full sm:px-5 sm:py-3 text-zinc-200 bg-zinc-600 focus:bg-zinc-800 rounded-full focus:outline-none focus:ring-[1px] focus:ring-green-700 placeholder:text-zinc-500"
           type="text"
           placeholder="What are you looking for?"
           value={search || ""}

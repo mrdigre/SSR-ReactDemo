@@ -3,6 +3,9 @@ import { getProducts } from "@/lib/prisma";
 import CardComponent from "@/app/components/CardComponent";
 import { GetStaticProps, GetStaticPaths } from "next";
 
+
+// check next 13 documentation for dynamic routing.
+
 const ProductPage = async () => {
   const products = await getProducts(  );
 

@@ -1,16 +1,4 @@
 
-import ProductPage from "./ProductPage"
-
-export default async function ProductHome(props: any){
-
-
-    return (
-        <div className="mt-8 text-black">
-            
-           {<ProductPage />}
-
-        </div>
-    )
-
-
-}
+export default function Page({ params }) {
+    return <div className="bg-black">My Post: {params.id}</div>
+  }
