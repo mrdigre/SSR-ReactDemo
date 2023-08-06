@@ -5,20 +5,14 @@ const Page = async ({ params }) => {
   const products = await getProduct( params.id );
   
   return(
-    <div className="bg-black mt-6 flex flex-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+    <div className="text-black bg-gray-200 w-full items-center relative mt-6 flex gap-x-6 gap-y-10 sm:flex-cols-1 lg:flex-cols-2 xl:gap-x-8">
       
-      <div>
-        <div>
-          {products.name}
-        </div>
-        <div>
-          {products.model}
-        </div>
-        <div>
-          {products.description}
-        </div>
-        <div>
-          {products.price}
+      <div className="w-full sm:w-1/2 bg-white">
+        <h1 className="text-3xl font-semibold mb-2 text-center"> {products.name} </h1>
+        <h2> {products.model} </h2>
+        <h3> {products.description} </h3>
+        <div className="text-xl font-bold text-right">
+          ${products.price}
         </div>
         <div className="flex flex-cols-2">
           <div className="p-4">
@@ -30,16 +24,18 @@ const Page = async ({ params }) => {
         </div>
       </div>
       
-      <div>
-        <Image
-          src={products.image}
-          alt={products.name}
-          className="object-center"
-          width={'100'}
-          height={'100'}
-        />
+      <div className="w-full flex justify-center">
+        <div className="w-full sm:w-1/2">
+          <Image
+            src={products.image}
+            alt={products.name}
+            className="object-center"
+            width={'300'}
+            height={'300'}
+          />
+        </div>
       </div>
-
+    
     </div>
   );
 };
