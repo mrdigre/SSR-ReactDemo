@@ -2,11 +2,11 @@
 import React from 'react';
 import { useCart } from '@/app/contexts/CartContext';
 
-const CartButton = ({ product }) => {
+const CartButton = ({ products }) => {
   const { addToCart } = useCart();
 
   const handleAddToCart = () => {
-    addToCart(product);
+    addToCart(products);
   };
 
   return (

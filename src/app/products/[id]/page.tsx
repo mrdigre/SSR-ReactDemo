@@ -2,6 +2,7 @@
 import { getProduct } from "@/lib/prisma";
 import Image from "next/image";
 import CartButton from "@/app/components/CartButton";
+import Cart from "@/app/components/Cart";
 
 const ProductPage = async ({ params, product }) => {
   const products = await getProduct( params.id );
@@ -9,7 +10,7 @@ const ProductPage = async ({ params, product }) => {
    return(
     <div className="bg-gray-100 flex w-full border rounded-lg items-center justify-evenly relative mt-6 sm:flex-cols-1 lg:flex-cols-2 xl:gap-x-8">
       
-      <div className="w-1/3 bg-gray-100 justify-center drop-shadow-md">
+      <div className="w-1/3 bg-gray-100  drop-shadow-md">
         
         <div className="text-zinc-900 bg-white border rounded-lg flex justify-center w-full items-center">
           <h1 className="text-4xl font-bold mb-2 text-center">
@@ -37,7 +38,7 @@ const ProductPage = async ({ params, product }) => {
 
           <div className="flex flex-cols-2 text-zinc-700 ">
             <div className="p-4">
-            <CartButton product={product} />
+             <CartButton product={products} />
             </div>
             <div className="p-2 text-right">
               QUANTITY
@@ -49,9 +50,7 @@ const ProductPage = async ({ params, product }) => {
 
         <div className="text-black text-center">
           <h1>CART</h1>
-          <li>
-            /* Cart List */
-          </li>
+          <Cart />
         </div>
       </div>
       

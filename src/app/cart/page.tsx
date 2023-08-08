@@ -4,7 +4,7 @@ import Cart from "../components/Cart";
 const CartPage = () => {
   return (
     
-      <Cart />
+   <div>hi</div>
     
   );
 };

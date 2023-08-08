@@ -21,7 +21,7 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider value={cartValue}>
-      {children}
+      {children} // como se pasan estas props a todos los demas componentes?
     </CartContext.Provider>
   );
 };
