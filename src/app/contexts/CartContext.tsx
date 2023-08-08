@@ -19,6 +19,8 @@ export const CartProvider = ({ children }) => {
     addToCart,
   };
 
+  console.log("CartProvider - cartItems:", cartItems);
+
   return (
     <CartContext.Provider value={cartValue}>
       {children} // como se pasan estas props a todos los demas componentes?
