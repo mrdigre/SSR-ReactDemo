@@ -1,17 +1,12 @@
-"use client"
+
 import { getProduct } from "@/lib/prisma";
 import Image from "next/image";
+import CartButton from "@/app/components/CartButton";
 
-const Page = async ({ params }) => {
+const ProductPage = async ({ params, product }) => {
   const products = await getProduct( params.id );
-
   
-    const handleClick = () => {
-      // This function will be executed when the button is clicked
-      alert('Button clicked!'); // Replace this with your desired functionality
-    }
-
-  return(
+   return(
     <div className="bg-gray-100 flex w-full border rounded-lg items-center justify-evenly relative mt-6 sm:flex-cols-1 lg:flex-cols-2 xl:gap-x-8">
       
       <div className="w-1/3 bg-gray-100 justify-center drop-shadow-md">
@@ -42,7 +37,7 @@ const Page = async ({ params }) => {
 
           <div className="flex flex-cols-2 text-zinc-700 ">
             <div className="p-4">
-              <button onClick={handleClick} className="border hover:bg-gray-800 bg-gray-500  text-white">ADD TO CART</button>
+            <CartButton product={product} />
             </div>
             <div className="p-2 text-right">
               QUANTITY
@@ -75,4 +70,4 @@ const Page = async ({ params }) => {
     
   );
 };
-export default Page;
+export default ProductPage;
