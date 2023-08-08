@@ -6,7 +6,7 @@ const Cart = () => {
   
     return (
       <div className="text-black">
-        <h2>Cart</h2>
+        
         <ul>
           {cartItems.map((item, index) => (
             <li key={index}>{item && item.name}</li>
