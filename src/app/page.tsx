@@ -7,7 +7,7 @@ import StoreBanner from "./components/StoreBanner";
 
 
 
-export default function HomePage({ children }) {
+export default function HomePage({  }) {
   return (
     <div className="p-4">
       {<ImageBanner />}
@@ -18,7 +18,7 @@ export default function HomePage({ children }) {
       <StoreBanner />
       
       
-      {children}
+      
     </div>
   );
 }
