@@ -46,12 +46,7 @@ const ProductPage = async ({ params, product }) => {
               </input>
             </div>
           </div>
-        </div>
-
-        <div className="text-black text-center">
-          <h1>CART</h1>
-          <Cart />
-        </div>
+        </div>  
       </div>
       
       <div className="w-1/3 min-h-[50%] bg-white flex justify-center items-center border border-2 rounded-lg drop-shadow-md">
