@@ -5,7 +5,6 @@ export default function CardComponent({
   id,
   name,
   title,
-  model,
   description,
   price,
   image,
