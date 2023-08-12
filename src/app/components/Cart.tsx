@@ -5,7 +5,7 @@ const Cart = () => {
     const { cartItems } = useCart();
   
     return (
-        <div className="flex flex-col bg-gray-100 text-gray-800">
+        <div className="flex flex-col w-2/3 bg-gray-100 text-gray-800">
             <header className="bg-white py-4 shadow">
                 <h1 className="text-2xl font-bold text-center">Shopping Cart</h1>
             </header>
