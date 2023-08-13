@@ -1,5 +1,6 @@
 'use client'
 import { useCart } from "../contexts/CartContext"
+import Image from "next/image";
 
 const Cart = () => {
     const { cartItems } = useCart();
@@ -15,7 +16,12 @@ const Cart = () => {
                     <ul className="space-y-4">
                        {cartItems.map((item, index) => (
                             <li className="bg-white shadow-md p-4 flex" key={index}>
-                                <img className="w-20 h-20 object-cover mr-4" src={item.image} alt={item.name} />
+                                <Image 
+                                    src={item.image}
+                                    alt={item.name}
+                                    width={300}
+                                    height={300}
+                                    className="rounded-lg bg-gray-100" />
                                     <div className="flex-1">
                                         <h3 className="text-lg font-semibold">{item.name}</h3>
                                         <p className="text-gray-600 mb-2">Price: ${item.price.toFixed(2)}</p>
