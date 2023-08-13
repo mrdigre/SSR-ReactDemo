@@ -34,7 +34,7 @@ const ProductPage = async ({ params, product }) => {
 
         <div>
           
-          /* ADD TO CART BUTTON */
+          {/* ADD TO CART BUTTON */}
 
           <div className="flex flex-cols-2 text-zinc-700 ">
             <div className="p-4">
