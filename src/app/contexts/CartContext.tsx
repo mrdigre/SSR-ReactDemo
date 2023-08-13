@@ -14,9 +14,14 @@ export const CartProvider = ({ children }) => {
     setCartItems((prevItems) => [...prevItems, product]);
   };
 
+  const removeFromCart = (productId) => {
+    setCartItems((prevItems) => prevItems.filter(item => item.id !== productId));
+  };
+  
   const cartValue = {
     cartItems,
     addToCart,
+    removeFromCart
   };
 
   console.log("CartProvider - cartItems:", cartItems);

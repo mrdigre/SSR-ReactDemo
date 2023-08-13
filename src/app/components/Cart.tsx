@@ -3,7 +3,7 @@ import { useCart } from "../contexts/CartContext"
 import Image from "next/image";
 
 const Cart = () => {
-    const { cartItems } = useCart();
+    const { cartItems,removeFromCart } = useCart();
   
     return (
         <div className="flex flex-col w-2/3 bg-gray-100 text-gray-800">
@@ -26,7 +26,10 @@ const Cart = () => {
                                         <h3 className="text-lg font-semibold">{item.name}</h3>
                                         <p className="text-gray-600 mb-2">Price: ${item.price.toFixed(2)}</p>
                                         <p className="text-gray-600">Quantity: {item.quantity}</p>
-                                        <button className="text-red-500 mt-2">Remove</button>
+                                        <button onClick={() => removeFromCart(item.id)} 
+                                            className="text-red-500 mt-2">
+                                                Remove
+                                        </button>
                                     </div>
                             </li>
                         ))}
