@@ -11,7 +11,15 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (product) => {
-    setCartItems((prevItems) => [...prevItems, product]);
+    const existingItemIndex = cartItems.findIndex(item => item.id === product.id);
+  
+    if (existingItemIndex !== -1) {
+      const updatedCartItems = [...cartItems];
+      updatedCartItems[existingItemIndex].quantity += 1;
+      setCartItems(updatedCartItems);
+    } else {
+      setCartItems(prevItems => [...prevItems, { ...product, quantity: 1 }]);
+    }
   };
 
   const removeFromCart = (productId) => {
@@ -31,4 +39,5 @@ export const CartProvider = ({ children }) => {
       {children} 
     </CartContext.Provider>
   );
+
 };
