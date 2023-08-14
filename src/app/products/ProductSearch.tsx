@@ -26,6 +26,8 @@ export default function ProductSearch() {
   
   const debouncedSearch = useDebounce(search, 500);
 
+  // case sensitive "tolowercase" not working correctly
+
   const onSearch = async (e: React.FormEvent) => {
     setIsLoading(true);
     const url = "http://localhost:3000/api/products";
