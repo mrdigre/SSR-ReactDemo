@@ -24,10 +24,10 @@ const Cart = () => {
                         
                             }
 
-                        return aggregatedItems;
+                            return aggregatedItems;
 
                         }, []).map((item, index) => (
-                            
+
                             <li className="bg-white shadow-md p-4 flex" key={index}>
                                 <Image 
                                 src={item.image}
