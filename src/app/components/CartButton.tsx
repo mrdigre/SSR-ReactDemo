@@ -7,6 +7,7 @@ const CartButton = ({ product }) => {
 
   const handleAddToCart = () => {
     addToCart(product);
+    window.alert("Product added succesfully")
   };
 
     
