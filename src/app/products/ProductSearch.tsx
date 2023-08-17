@@ -4,19 +4,19 @@ import CardComponent from "@/app/components/CardComponent";
 
 // default debounce function:
 const useDebounce = (value, delay) => {
-    const [debouncedValue, setDebouncedValue] = useState(value);
-  
-    useEffect(() => {
-      const handler = setTimeout(() => {
-        setDebouncedValue(value)
-      }, delay)
-  
-      return () => {
-        clearTimeout(handler)
-      }
-    }, [value, delay])
-  
-    return debouncedValue
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value)
+    }, delay)
+
+    return () => {
+      clearTimeout(handler)
+    }
+  }, [value, delay])
+
+  return debouncedValue
 };
 
 export default function ProductSearch() {
@@ -26,13 +26,21 @@ export default function ProductSearch() {
   
   const debouncedSearch = useDebounce(search, 500);
 
+  // case sensitive "tolowercase" not working correctly
+
   const onSearch = async (e: React.FormEvent) => {
     setIsLoading(true);
     const url = "http://localhost:3000/api/products";
     try {
       let response = await fetch(`${url}?q=${encodeURIComponent(search)}`);
       const data = await response.json();
-      const filteredProducts = data.data; 
+      
+      const searchQuery = search.toLowerCase();
+
+      const filteredProducts = data.data.filter(product =>
+        product.name.toLowerCase().includes(searchQuery)
+      );
+
       setFilteredProducts(filteredProducts);
       setIsLoading(false);
     } catch (e) {
