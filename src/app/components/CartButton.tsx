@@ -12,7 +12,7 @@ const CartButton = ({ product }) => {
 
     
   return (
-    <button onClick={handleAddToCart} className="border hover:bg-gray-800 bg-gray-500 text-white">
+    <button onClick={handleAddToCart} className="border hover:bg-gray-800 bg-gray-500 text-white rounded px-2 py-1">
       ADD TO CART
     </button>
   );
