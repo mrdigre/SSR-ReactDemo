@@ -20,4 +20,4 @@ const CartButton = ({ product }) => {
 
 export default CartButton;
 
-//zindex 
+ 

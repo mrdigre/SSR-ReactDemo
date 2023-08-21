@@ -3,8 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon, ShoppingCartIcon, UserIcon } from "@heroicons/react/24/outline";
 import Cart from "./Cart";
+
 
 
 
@@ -95,7 +96,7 @@ export default function ResponsiveAppBar() {
                   <div>
                     <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open user menu</span>
-                      <ShoppingCartIcon className="h-8 w-8" aria-hidden="true" />
+                      <UserIcon className="h-8 w-8" aria-hidden="true" />
                     </Menu.Button>
                   </div>
                   <Transition
