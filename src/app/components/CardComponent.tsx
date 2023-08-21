@@ -11,7 +11,7 @@ export default function CardComponent({
   image,
 }) {
   return (
-    <div key={id} className="group relative h-100">
+    <div key={id} className="group relative h-100 z-0">
       <div className="p-3 border rounded-lg overflow-hidden bg-white transform transition-all duration-200 hover:border-gray-400 hover:shadow-lg h-full">
         <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
           <Image
