@@ -8,15 +8,16 @@ const ProductPage = async ({ params, product }) => {
   const fetchedProduct = await getProduct( params.id );
   
    return(
-    <div className="bg-gray-100 flex w-full border rounded-lg items-center justify-evenly relative mt-6 sm:flex-cols-1 lg:flex-cols-2 xl:gap-x-8">
+    <div className="bg-white flex w-full items-center justify-evenly sm:flex-cols-1 lg:flex-cols-2 xl:gap-x-8">
       
-      <div className="w-1/3 bg-gray-100 justify-center drop-shadow-md">
+      <div className="w-1/3 justify-center">
         
-        <div className="text-zinc-900 bg-white border rounded-lg flex justify-center w-full items-center">
-          <h1 className="text-4xl font-bold mb-2 text-center">
+        <div className="text-zinc-900 bg-white flex w-full">
+          <h1 className="text-4xl font-bold mt-2 ">
             {fetchedProduct.name} 
           </h1>
         </div>  
+
         <div className="text-zinc-700">
           <h2 className="font-semibold text-2xl p-2"> 
             {fetchedProduct.model} 
