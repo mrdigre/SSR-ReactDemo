@@ -8,7 +8,7 @@ const ProductPage = async ({ params, product }) => {
   const fetchedProduct = await getProduct( params.id );
   
    return(
-    <div className="bg-white flex w-full items-center justify-evenly sm:flex-cols-1 lg:flex-cols-2 xl:gap-x-8">
+    <div className="bg-white flex w-full items-center sm:flex-cols-1 lg:flex-cols-2 xl:gap-x-8">
       
       <div className="w-1/3 justify-center">
         
