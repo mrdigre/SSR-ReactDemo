@@ -8,6 +8,7 @@ import Cart from "./Cart";
 
 
 
+
 const navigation = [
   { label: "Products", route: "/products", current: false },
   { label: "About", route: "/about", current: false },

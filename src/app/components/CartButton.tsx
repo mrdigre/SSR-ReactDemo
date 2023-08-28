@@ -12,10 +12,12 @@ const CartButton = ({ product }) => {
 
     
   return (
-    <button onClick={handleAddToCart} className="border hover:bg-gray-800 bg-gray-500 text-white">
-      ADD TO CART
+    <button onClick={handleAddToCart} className="z-20 hover:bg-blue-800 bg-blue-500 text-white font-bold rounded-full px-2 py-1 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none ">
+      Add to Cart
     </button>
   );
 };
 
 export default CartButton;
+
+ 
