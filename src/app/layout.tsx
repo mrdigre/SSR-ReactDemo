@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
           </div>
 
           <div className="flex flex-col items-stretch justify-center bg-gray-200 mt-14">
-            <div className="container lg:max-w-7xl sm:max-w-sm md:max-w-md mx-auto flex flex-wrap justify-center items-stretch min-h-screen bg-white rounded-lg shadow-lg">
+            <div className="container lg:max-w-7xl sm:max-w-sm md:max-w-md mx-auto flex flex-wrap justify-center items-stretch min-h-screengit  bg-white rounded-lg shadow-lg">
               {children}
             </div>
           </div>
