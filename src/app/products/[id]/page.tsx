@@ -10,7 +10,7 @@ const ProductPage = async ({ params, product }) => {
    return(
     <div className="border flex bg-gray-200 w-full items-center sm:flex-cols-1 lg:flex-cols-2 ">
       
-      <div className="w-1/3 justify-center">
+      <div className="h-[65%] justify-center ">
         
         <div className="text-zinc-900  flex w-full">
           <h1 className="text-4xl font-bold mt-2 ">
@@ -50,17 +50,20 @@ const ProductPage = async ({ params, product }) => {
         </div>  
       </div>
       
-      <div className="w-1/3 min-h-[50%] bg-white flex justify-center items-center border border-2 rounded-lg drop-shadow-md">
-        <div className="p-6">
-          <Image
-            src={fetchedProduct.image}
-            alt={fetchedProduct.name}
-            className="object-center"
-            width={'500'}
-            height={'500'}
-          />
+      
+      <div className=" w-1/3 min-h-[50%] p-6 bg-white flex justify-center items-center border border-2 rounded-lg drop-shadow-md">
+        <div className="ml-auto bg-black">
+        <Image
+          src={fetchedProduct.image}
+          alt={fetchedProduct.name}
+          className="object-center"
+          width={'500'}
+          height={'500'}
+        />
         </div>
       </div>
+      
+
     </div>
     
   );
