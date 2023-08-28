@@ -8,11 +8,11 @@ const ProductPage = async ({ params, product }) => {
   const fetchedProduct = await getProduct( params.id );
   
    return(
-    <div className="border flex w-full items-center sm:flex-cols-1 lg:flex-cols-2 ">
+    <div className="border flex bg-gray-200 w-full items-center sm:flex-cols-1 lg:flex-cols-2 ">
       
       <div className="w-1/3 justify-center">
         
-        <div className="text-zinc-900 bg-white flex w-full">
+        <div className="text-zinc-900  flex w-full">
           <h1 className="text-4xl font-bold mt-2 ">
             {fetchedProduct.name} 
           </h1>
