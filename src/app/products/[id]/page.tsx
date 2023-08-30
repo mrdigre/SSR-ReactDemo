@@ -11,7 +11,7 @@ const ProductPage = async ({ params, product }) => {
     
         <div className="mt-4 bg-gray-200 w-full">
             <div className="flex flex-col h-2/3 md:flex-row -mx-4 mt-6 p-6">
-                <div className="flex justify-center items-center md:flex-1 bg-white shadow-lg rounded-lg">
+                <div className="flex justify-center items-center md:flex-1 bg-white shadow-lg rounded-lg border-4 border-blue-600">
                     
                     <div className="flex items-center justify-center p-4 rounded-lg ">
                         <Image
@@ -31,11 +31,11 @@ const ProductPage = async ({ params, product }) => {
                         
                     <div className="flex flex-row mt-4 w-full mb-4">
                         <div className="flex justify-left w-1/4">
-                            <span className="font-bold text-gray-700">Price: </span>
+                            <span className="font-bold text-gray-700 mr-1">Price:</span>
                             <span className="text-gray-600"> ${fetchedProduct?.price} </span>
                         </div>
                         <div className="flex w-1/4 justify-end">
-                            <span className="font-bold text-gray-700">Stock: </span>
+                            <span className="font-bold text-gray-700 mr-1">Stock: </span>
                             <span className="text-gray-600"> {fetchedProduct?.stock} </span>
                         </div>
                     </div>
@@ -47,11 +47,19 @@ const ProductPage = async ({ params, product }) => {
                         <p className="text-gray-600 mt-2"> {fetchedProduct?.description} </p>
                     </div>
                         
-                    <div className="flex flex-col mb-4 text-gray-600 font bold w-1/2 text-sm">
-                            Select Quantity
-                            <input type="number" className="border rounded-lg py-1 w-1/4">
-                            </input>
+                    <div className="flex items-center">
+                        <label className="mr-2 text-black">Quantity:</label>
+                        <input
+                            id="quantity"
+                            className="text-black w-16 px-2 py-1 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                            type="number"
+                            min="1"
+                            
+                            
+                        />
+                        
                     </div>
+
 
                     <div className="flex w-full -mx-1 mb-4 mt-4">
                         <div className="flex w-1/2">
