@@ -2,7 +2,7 @@
 import { getProduct } from "@/lib/prisma";
 import Image from "next/image";
 import CartButton from "@/app/components/CartButton";
-
+import QuantityInput from "@/app/components/QuantityInputField";
 
 const ProductPage = async ({ params, product }) => {
   const fetchedProduct = await getProduct( params.id );
@@ -11,7 +11,7 @@ const ProductPage = async ({ params, product }) => {
     
         <div className="mt-4 bg-gray-200 w-full">
             <div className="flex flex-col h-2/3 md:flex-row -mx-4 mt-6 p-6">
-                <div className="flex justify-center items-center md:flex-1 bg-white shadow-lg rounded-lg border-4 border-blue-600">
+                <div className="flex justify-center items-center md:flex-1 bg-white shadow-lg rounded-lg ring-2">
                     
                     <div className="flex items-center justify-center p-4 rounded-lg ">
                         <Image
@@ -24,7 +24,7 @@ const ProductPage = async ({ params, product }) => {
                     
                 </div>
                 
-                <div className="md:flex-1 p-4 ml-4">
+                <div className="flex flex-col md:flex-1 p-4 ml-4">
                     
                     <h2 className="text-4xl text-gray-600 font-bold mb-4">{fetchedProduct?.name}</h2>
                     <p className="text-2xl text-gray-600 mb-4"> {fetchedProduct?.title} </p>
@@ -48,15 +48,8 @@ const ProductPage = async ({ params, product }) => {
                     </div>
                         
                     <div className="flex items-center">
-                        <label className="mr-2 text-black">Quantity:</label>
-                        <input
-                            id="quantity"
-                            className="text-black w-16 px-2 py-1 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
-                            type="number"
-                            min="1"
-                            
-                            
-                        />
+                        
+                        <QuantityInput />
                         
                     </div>
 
