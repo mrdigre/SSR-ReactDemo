@@ -7,7 +7,7 @@ const CartButton = ({ product }) => {
   const [quantity, setQuantity] = useState(1); // State to track quantity
 
   const handleAddToCart = () => {
-    addToCart(product, quantity); // Add to cart when the button is clicked
+    addToCart(product, quantity); 
     window.alert("Product added successfully");
   };
 
@@ -27,6 +27,8 @@ const CartButton = ({ product }) => {
         </button>
 
         <input
+          className="z-10 md:p-2 text-xs w-1/2 md:text-base border-gray-400 focus:outline-none text-center text-gray-600 px-2 py-1"
+          name="custom-input-number"
           type="number"
           min="1"
           value={quantity}
@@ -36,8 +38,8 @@ const CartButton = ({ product }) => {
               setQuantity(newQuantity); // Update the quantity state
             }
           }}
-          className="z-20 md:p-2 p-1 text-xs w-1/2 md:text-base border-gray-400 focus:outline-none text-center text-gray-600"
-          name="custom-input-number"
+          
+          
         />
 
         <button
