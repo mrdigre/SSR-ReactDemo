@@ -20,6 +20,7 @@ export const CartProvider = ({ children }) => {
     } else {
       setCartItems(prevItems => [...prevItems, { ...product, quantity: 1 }]);
     }
+  
   };
 
   const removeFromCart = (productId) => {
