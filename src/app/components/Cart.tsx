@@ -38,7 +38,7 @@ const Cart = () => {
                     
                                 <div className="flex-1">
                                     <h3 className="text-lg font-semibold">{item.name}</h3>
-                                    <p className="text-gray-600 mb-2">Price: ${item.price.toFixed(2)}</p>
+                                    {/* <p className="text-gray-600 mb-2">Price: ${item.price.toFixed(2)}</p> */}
                                     <p className="text-gray-600">Quantity: {item.quantity}</p>
                                     <button onClick={() => removeFromCart(item.id)} 
                                         className="text-red-500 mt-2">
