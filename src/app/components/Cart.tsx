@@ -4,11 +4,14 @@ import Image from "next/image";
 
 const Cart = () => {
     const { cartItems,removeFromCart } = useCart();
+    const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
+
   
     return (
-        <div className="flex flex-col w-2/3 bg-gray-100 text-gray-800">
-            <header className="bg-white py-4 shadow">
-                <h1 className="text-2xl font-bold text-center">Shopping Cart</h1>
+
+        <div className="flex flex-col w-4/5 bg-white text-gray-800">
+            <header className="bg-white py-4">
+                <h1 className="text-2xl font-bold text-left py-4">Cart ({totalQuantity} products)</h1>
             </header>
             
             <main className="flex-1 px-4 py-8 md:px-8">
@@ -32,8 +35,8 @@ const Cart = () => {
                                 <Image 
                                 src={item.image}
                                 alt={item.name}
-                                width={300}
-                                height={300}
+                                width={100}
+                                height={(200 * 3) / 4}
                                 className="rounded-lg bg-gray-100" />
                     
                                 <div className="flex-1">
