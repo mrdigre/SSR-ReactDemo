@@ -1,21 +1,34 @@
 'use client'
 import { useCart } from "../contexts/CartContext"
 import Image from "next/image";
+import Link from "next/link";
 
 const Cart = () => {
     const { cartItems,removeFromCart } = useCart();
     const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
     const showMessageIfEmptyCart = totalQuantity === 0
 
-        
+    // href={route}
+    // key={route}
+    // className={classNames(
+    //   label.current
+    //     ? "bg-gray-900 text-white"
+    //     : "text-gray-300 hover:bg-gray-700 hover:text-white",
+    //   "rounded-md px-3 py-2 text-lg font-medium"
     
   
     return (
 
         <div className="flex flex-col w-4/5 bg-white text-gray-800">
             <header className="bg-white py-4">
-                <h1 className="text-2xl font-bold text-left py-4">Cart ({totalQuantity} products)</h1>
-                {showMessageIfEmptyCart && <p>No items currently in cart</p>}
+                <h1 className="text-3xl font-bold text-left py-4">Cart ({totalQuantity} products)</h1>
+                {showMessageIfEmptyCart && 
+                <p className="text-2xl text-bold py-4 text-neutral-600">No items currently in cart!</p>}
+                {showMessageIfEmptyCart && 
+                <p className="text-md mt-4 italic text-neutral-600">Go to the <Link
+                href="/products"
+                className="font-bold hover:text-black">
+                Products</Link> section to add products</p>}
             </header>
             
             <main className="flex-1 px-4 py-8 md:px-8">
