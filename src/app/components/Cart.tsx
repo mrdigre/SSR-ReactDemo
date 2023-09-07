@@ -5,13 +5,17 @@ import Image from "next/image";
 const Cart = () => {
     const { cartItems,removeFromCart } = useCart();
     const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
+    const showMessageIfEmptyCart = totalQuantity === 0
 
+        
+    
   
     return (
 
         <div className="flex flex-col w-4/5 bg-white text-gray-800">
             <header className="bg-white py-4">
                 <h1 className="text-2xl font-bold text-left py-4">Cart ({totalQuantity} products)</h1>
+                {showMessageIfEmptyCart && <p>No items currently in cart</p>}
             </header>
             
             <main className="flex-1 px-4 py-8 md:px-8">
