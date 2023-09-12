@@ -21,7 +21,7 @@ export const CartProvider = ({ children }) => {
     } else {
       setCartItems(prevItems => [...prevItems, { ...product, quantity }]);
     }
-  
+    window.alert("Product added successfully");
   };
 
   const removeFromCart = (productId) => {

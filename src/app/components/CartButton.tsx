@@ -8,7 +8,7 @@ const CartButton = ({ product }) => {
 
   const handleAddToCart = () => {
     addToCart(product, quantity); 
-    window.alert("Product added successfully");
+    
   };
 
   return (

@@ -47,13 +47,6 @@ const ProductPage = async ({ params, product }) => {
                         <p className="text-gray-600 mt-2"> {fetchedProduct?.description} </p>
                     </div>
                         
-                    {/* <div className="flex items-center">
-                        
-                        <QuantityInput />
-                        
-                    </div> */}
-
-
                     <div className="flex w-full -mx-1 mb-4 mt-4">
                         <div className="flex w-1/2">
                             <CartButton product={fetchedProduct} />
@@ -64,8 +57,6 @@ const ProductPage = async ({ params, product }) => {
                             </div> */}
                     </div>
 
-                    
-                
                 </div>
             </div>
         </div>
