@@ -4,19 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Cart = () => {
-    const { cartItems,removeFromCart } = useCart();
-    const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
+    const { cartItems, removeFromCart, totalQuantity } = useCart();
     const showMessageIfEmptyCart = totalQuantity === 0
 
-    // href={route}
-    // key={route}
-    // className={classNames(
-    //   label.current
-    //     ? "bg-gray-900 text-white"
-    //     : "text-gray-300 hover:bg-gray-700 hover:text-white",
-    //   "rounded-md px-3 py-2 text-lg font-medium"
-    
-  
     return (
 
         <div className="flex flex-col w-4/5 bg-white text-gray-800">

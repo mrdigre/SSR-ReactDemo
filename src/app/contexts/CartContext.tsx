@@ -35,6 +35,9 @@ export const CartProvider = ({ children }) => {
   const setQuantity = (productId, quantity) => {
     setQuantityMap({ ...quantityMap, [productId]: quantity });
   };
+
+  const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
+
   
   const cartValue = {
     cartItems,
@@ -42,6 +45,7 @@ export const CartProvider = ({ children }) => {
     removeFromCart,
     getQuantity,
     setQuantity,
+    totalQuantity,
   };
 
   console.log("CartProvider - cartItems:", cartItems);
