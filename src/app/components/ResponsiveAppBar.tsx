@@ -4,10 +4,7 @@ import Image from "next/image";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon, ShoppingCartIcon, UserIcon } from "@heroicons/react/24/outline";
-import Cart from "./Cart";
-
-
-
+import { useCart } from "../contexts/CartContext";
 
 const navigation = [
   { label: "Products", route: "/products", current: false },
@@ -20,6 +17,8 @@ function classNames(...classes) {
 }
 
 export default function ResponsiveAppBar() {
+  const { totalQuantity } = useCart();
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -82,12 +81,17 @@ export default function ResponsiveAppBar() {
                   href={"/cart"}
                   key={"/cart"}
                 >
+                  
                   <button
                     type="button"
                     className="rounded-full bg-gray-800 p-3  text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
                     <span className="sr-only">View notifications</span>
                     <ShoppingCartIcon className="h-8 w-8" aria-hidden="true" />
+                    
+                      {totalQuantity > 0 && (
+                        <span className="cart-count">{totalQuantity}</span>
+                      )}
                   </button>
                 </Link>
 
