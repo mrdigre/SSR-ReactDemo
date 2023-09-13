@@ -1,6 +1,7 @@
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
 import Footer from "./components/Footer";
 import { CartProvider } from "./contexts/CartContext";
+import "./globals.css";
 
 
 export default function RootLayout({ children }) {

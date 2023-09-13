@@ -49,7 +49,7 @@ const ProductPage = async ({ params, product }) => {
                         
                     <div className="flex w-full -mx-1 mb-4 mt-4">
                         <div className="flex w-1/2">
-                            <CartButton product={fetchedProduct} />
+                            <CartButton product={product} />
                         </div>
                             {/*   ADD TO WISH LIST BTN?   */}
                             {/* <div className="w-1/2 px-2">

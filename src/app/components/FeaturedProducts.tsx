@@ -12,14 +12,7 @@ const FeaturedProducts = async () => {
 
       {products.map((product) => (
         <CardComponent
-          id={product.id}
-          key={product.id}
-          name={product.name}
-          title={product.title}
-          model={product.model}
-          description={product.description}
-          price={product.price}
-          image={product.image}
+          product={product}
         />
       ))}
 

@@ -1,7 +1,4 @@
-// "use client";
-
 import ImageBanner from "./components/ImageBanner";
-import "./globals.css";
 import FeaturedProducts from "./components/FeaturedProducts";
 import StoreBanner from "./components/StoreBanner";
 
