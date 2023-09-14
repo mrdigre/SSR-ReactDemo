@@ -2,14 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import CartButton from "./CartButton";
 
-export default function CardComponent({
-  id,
-  name,
-  title,
-  description,
-  price,
-  image,
-}) {
+export default function CardComponent({ product }) {
+  const { id, image, name, title, description, price } = product;
+
   return (
     <div key={id} className="group relative h-100 z-0">
       <div className="p-3 border rounded-lg overflow-hidden bg-white transform transition-all duration-200 hover:border-gray-400 hover:shadow-lg h-full">
@@ -35,7 +30,7 @@ export default function CardComponent({
         
         <div className="flex justify-between">
         <p className="mt-1 text-md font-bold text-gray-900 ">${price}</p>
-        <CartButton />
+        <CartButton product={product}/>
         </div>
 
       </div>
