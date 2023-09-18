@@ -1,8 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import CartButton from "./CartButton";
+import { Product } from "@prisma/client";
 
-export default function CardComponent({ product }) {
+interface CardComponentProps {
+  product: Product;
+}
+
+export default function CardComponent({ product }: CardComponentProps) {
   const { id, image, name, title, description, price } = product;
 
   return (
