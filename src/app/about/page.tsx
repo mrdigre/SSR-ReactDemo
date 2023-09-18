@@ -20,7 +20,7 @@ export default function About() {
         <div className="flex flex-col md:flex-row p-4">
           {/* Left Column */}
           <div className="flex-1 p-4 flex justify-center">
-            <p className="text-gray-600 px-6 text-justify">Whether you're a tech enthusiast looking for the latest gadgets or a professional seeking cutting-edge
+            <p className="text-gray-600 px-6 text-justify">Whether you&apos;re a tech enthusiast looking for the latest gadgets or a professional seeking cutting-edge
               solutions for your work, TechZone is your ultimate tech retail destination. We strive to offer an unbeatable
               selection of products, expert advice, and top-notch customer service to make your shopping experience
               exceptional.</p>
@@ -42,17 +42,19 @@ export default function About() {
         <div className="flex flex-col md:flex-row p-4 py-6">
           {/* Left Column */}
           <div className="flex-1 p-4">
-            <img
+            <Image
               className="w-full h-auto rounded-lg"
-              src="/your-image.jpg"
+              src="/banner.jpeg"
               alt="Image"
+              width={500}
+              height={500}
             />
           </div>
 
           {/* Right Column */}
           <div className="flex-1 p-4">
             <p className="text-gray-600 px-6 text-justify">Join our growing community of tech lovers and stay connected with the latest trends and innovations in the
-    world of technology. We're here to help you embrace the future of tech shopping!</p>
+    world of technology. We&apos;re here to help you embrace the future of tech shopping!</p>
           </div>
         </div>
 

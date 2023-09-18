@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { useState, useEffect } from "react";
 import CardComponent from "@/app/components/CardComponent";
 
@@ -28,7 +29,7 @@ export default function ProductSearch() {
 
   // case sensitive "tolowercase" not working correctly
 
-  const onSearch = async (e: React.FormEvent) => {
+  const onSearch = async () => {
     setIsLoading(true);
     const url = "http://localhost:3000/api/products";
     try {
@@ -44,7 +45,6 @@ export default function ProductSearch() {
       setFilteredProducts(filteredProducts);
       setIsLoading(false);
     } catch (e) {
-      console.log("error");
       setFilteredProducts([]);
       setIsLoading(false);
     } 
@@ -78,6 +78,7 @@ export default function ProductSearch() {
         {!isLoading && 
           filteredProducts.map((product) => (
             <CardComponent
+              key={product.id}
               product={product}
             />
           ))}
@@ -88,15 +89,3 @@ export default function ProductSearch() {
 
 
 
-// Actualizar valor de input -- ok
-// Como pasar ese valor de búsqueda a la api -- ok
-// Crer la api que obtenga esa búsqueda y devuelva valor --- ok
-
-
-/**
- * TODO:
- * - Loading: mostrar cuando la api está cargando
- * - Error: Si hay un error de la api mostrar algún mensaje al usuario
-  ok
-
-*/ 

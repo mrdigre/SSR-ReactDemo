@@ -2,7 +2,6 @@
 import { getProduct } from "@/lib/prisma";
 import Image from "next/image";
 import CartButton from "@/app/components/CartButton";
-import QuantityInput from "@/app/components/QuantityInputField";
 
 const ProductPage = async ({ params, product }) => {
   const fetchedProduct = await getProduct( params.id );

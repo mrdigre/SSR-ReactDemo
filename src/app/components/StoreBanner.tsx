@@ -14,7 +14,7 @@ const StoreBanner = async () => {
               The best tech hardware is here for you.
             </h1>
             <p className="mt-4 text-xl text-gray-900">
-              This year, our tech products will shelter you from the harsh elements of a world that doesn't care
+              This year, our tech products will shelter you from the harsh elements of a world that doesn&apos;t care
               if you live or die.
             </p>
           </div>

@@ -1,22 +1,28 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Fragment } from "react";
+import React, { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon, ShoppingCartIcon, UserIcon } from "@heroicons/react/24/outline";
 import { useCart } from "../contexts/CartContext";
 
-const navigation = [
+interface NavigationItem {
+  label: string;
+  route: string;
+  current: boolean;
+}
+
+const navigation: NavigationItem[] = [
   { label: "Products", route: "/products", current: false },
   { label: "About", route: "/about", current: false },
   { label: "Contact", route: "/contact", current: false },
 ];
 
-function classNames(...classes) {
+function classNames(...classes: string[]): string {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function ResponsiveAppBar() {
+export default function ResponsiveAppBar(): React.ReactElement {
   const { totalQuantity } = useCart();
 
   return (

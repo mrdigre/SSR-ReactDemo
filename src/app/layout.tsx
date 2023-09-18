@@ -1,10 +1,10 @@
+import React from "react";
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
 import Footer from "./components/Footer";
 import { CartProvider } from "./contexts/CartContext";
 import "./globals.css";
 
-
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: React.ReactElement) {
   return (
     <html>
       <head>
@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
       <body>
         <CartProvider>
           <div className="fixed top-0 left-0 w-full z-50">
-          <ResponsiveAppBar/> 
+            <ResponsiveAppBar/> 
           </div>
 
           <div className="flex flex-col items-stretch justify-center bg-gray-200 mt-14 h-full">
@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
           </div>
 
           <div className="w-full z-50">
-          <Footer/> 
+            <Footer/> 
           </div>
         </CartProvider>
       </body>

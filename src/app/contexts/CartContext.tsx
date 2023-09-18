@@ -1,17 +1,39 @@
 'use client'
-import { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
+import { Product } from '@prisma/client';
 
-const CartContext = createContext();
+interface CartProduct extends Product {
+  quantity: number
+}
 
-export const useCart = () => {
-  return useContext(CartContext);
+interface CartContextType {
+  cartItems: CartProduct[];
+  addToCart: (product: Product, quantity?: number) => void;
+  removeFromCart: (productId: string) => void;
+  getQuantity: (productId: string) => void;
+  setQuantity: (productId: string, quantity: number) => void;
+  totalQuantity: number;
+}
+
+const CartContext = createContext<CartContextType | null>(null);
+
+interface CartProviderProps {
+  children: React.ReactElement;
+}
+
+export const useCart = (): CartContextType => {
+  const context = useContext(CartContext);
+  if (!context) {
+    throw new Error('useCart must be used within a CartProvider');
+  }
+  return context;
 };
 
-export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
-  const [quantityMap, setQuantityMap] = useState({});
+export const CartProvider = ({ children }: CartProviderProps)  => {
+  const [cartItems, setCartItems] = useState<CartProduct[]>([]);
+  const [quantityMap, setQuantityMap] = useState<{ [productId: string]: number }>({});
 
-  const addToCart = (product, quantity=1) => {
+  const addToCart = (product: Product, quantity=1) => {
     const existingItemIndex = cartItems.findIndex(item => item.id === product.id);
     
     if (existingItemIndex !== -1) {
@@ -24,15 +46,15 @@ export const CartProvider = ({ children }) => {
     window.alert("Product added successfully");
   };
 
-  const removeFromCart = (productId) => {
+  const removeFromCart = (productId: string) => {
     setCartItems((prevItems) => prevItems.filter(item => item.id !== productId));
   };
   
-  const getQuantity = (productId) => {
+  const getQuantity = (productId: string) => {
     return quantityMap[productId] || 1; // Default to 1 if quantity is not set
   };
 
-  const setQuantity = (productId, quantity) => {
+  const setQuantity = (productId: string, quantity: number) => {
     setQuantityMap({ ...quantityMap, [productId]: quantity });
   };
 
@@ -47,8 +69,6 @@ export const CartProvider = ({ children }) => {
     setQuantity,
     totalQuantity,
   };
-
-  console.log("CartProvider - cartItems:", cartItems);
 
   return (
     <CartContext.Provider value={cartValue}>
