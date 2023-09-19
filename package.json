@@ -13,6 +13,7 @@
     "prisma:studio": "npx prisma studio",
     "db:dump": "npx prisma db seed",
     "pre-commit": "lint-staged",
+    "ts-check": "tsc --noEmit --skipLibCheck --project tsconfig.json",
     "prepare": "husky install"
   },
   "dependencies": {
