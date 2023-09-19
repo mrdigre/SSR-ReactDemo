@@ -49,6 +49,7 @@
     "typescript": "^5.1.6"
   },
   "prisma": {
-    "seed": "ts-node ./scripts/rebuild_db.ts"
+    "seed": "npx ts-node ./scripts/rebuild_db.ts"
   }
 }
+

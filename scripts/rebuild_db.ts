@@ -1,5 +1,6 @@
+/* eslint-disable  @typescript-eslint/no-var-requires */
 const { PrismaClient } = require('@prisma/client');
-const data = require('./data.json');
+const data = require('./products_data.json');
 const prisma = new PrismaClient();
 
 async function main() {
@@ -7,7 +8,7 @@ async function main() {
   await prisma.product.deleteMany({});
   console.log('Creating new products');
   const products = await prisma.product.createMany({
-    data,
+    data: data.products,
   });
   console.log({ status: 'ok', products });
 }
