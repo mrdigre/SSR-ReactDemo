@@ -1,10 +1,10 @@
-import ImageBanner from "./components/ImageBanner";
-import FeaturedProducts from "./components/FeaturedProducts";
-import StoreBanner from "./components/StoreBanner";
+import ImageBanner from './components/ImageBanner';
+import FeaturedProducts from './components/FeaturedProducts';
+import StoreBanner from './components/StoreBanner';
 
 type HomePageProps = {};
 
-export default function HomePage( {}:HomePageProps ) {
+export default function HomePage({}: HomePageProps) {
   return (
     <div className="p-4">
       {<ImageBanner />}
@@ -14,5 +14,4 @@ export default function HomePage( {}:HomePageProps ) {
     </div>
   );
 }
-
 

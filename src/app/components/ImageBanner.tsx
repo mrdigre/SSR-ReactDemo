@@ -9,10 +9,12 @@ export default function ImageBanner() {
             Welcome to Tech Zone!
           </h2>
           <p className="text-justify mr-16 mt-4 sm:text-xl text-gray-400">
-          We&apos;re your go-to home webstore for the latest and greatest tech products. 
-          Discover innovation at its finest with our carefully curated selection of cutting-edge gadgets and accessories. 
-          From smartphones to smart home devices, we&apos;ve got what you need to elevate your digital lifestyle. 
-          Shop now and experience the future with TechZone!
+            We&apos;re your go-to home webstore for the latest and greatest tech
+            products. Discover innovation at its finest with our carefully
+            curated selection of cutting-edge gadgets and accessories. From
+            smartphones to smart home devices, we&apos;ve got what you need to
+            elevate your digital lifestyle. Shop now and experience the future
+            with TechZone!
           </p>
         </div>
         <div className="flex justify-center items-center">
@@ -26,5 +28,6 @@ export default function ImageBanner() {
         </div>
       </div>
     </div>
-  )
+  );
 }
+

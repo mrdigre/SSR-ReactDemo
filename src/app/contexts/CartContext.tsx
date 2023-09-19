@@ -1,9 +1,9 @@
-'use client'
+'use client';
 import React, { createContext, useContext, useState } from 'react';
 import { Product } from '@prisma/client';
 
 interface CartProduct extends Product {
-  quantity: number
+  quantity: number;
 }
 
 interface CartContextType {
@@ -18,10 +18,10 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | null>(null);
 
 interface CartProviderProps {
-  children: React.ReactElement;
+  children: React.ReactElement | React.ReactElement[];
 }
 
-export const useCart = (): CartContextType => {
+export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) {
     throw new Error('useCart must be used within a CartProvider');
@@ -29,13 +29,17 @@ export const useCart = (): CartContextType => {
   return context;
 };
 
-export const CartProvider = ({ children }: CartProviderProps)  => {
+export const CartProvider = ({ children }: CartProviderProps) => {
   const [cartItems, setCartItems] = useState<CartProduct[]>([]);
-  const [quantityMap, setQuantityMap] = useState<{ [productId: string]: number }>({});
+  const [quantityMap, setQuantityMap] = useState<{
+    [productId: string]: number;
+  }>({});
 
-  const addToCart = (product: Product, quantity=1) => {
-    const existingItemIndex = cartItems.findIndex(item => item.id === product.id);
-    
+  const addToCart = (product: Product, quantity = 1) => {
+    const existingItemIndex = cartItems.findIndex(
+      item => item.id === product.id
+    );
+
     if (existingItemIndex !== -1) {
       const updatedCartItems = [...cartItems];
       updatedCartItems[existingItemIndex].quantity += quantity;
@@ -43,13 +47,13 @@ export const CartProvider = ({ children }: CartProviderProps)  => {
     } else {
       setCartItems(prevItems => [...prevItems, { ...product, quantity }]);
     }
-    window.alert("Product added successfully");
+    window.alert('Product added successfully');
   };
 
   const removeFromCart = (productId: string) => {
-    setCartItems((prevItems) => prevItems.filter(item => item.id !== productId));
+    setCartItems(prevItems => prevItems.filter(item => item.id !== productId));
   };
-  
+
   const getQuantity = (productId: string) => {
     return quantityMap[productId] || 1; // Default to 1 if quantity is not set
   };
@@ -58,9 +62,11 @@ export const CartProvider = ({ children }: CartProviderProps)  => {
     setQuantityMap({ ...quantityMap, [productId]: quantity });
   };
 
-  const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const totalQuantity = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
-  
   const cartValue = {
     cartItems,
     addToCart,
@@ -71,9 +77,7 @@ export const CartProvider = ({ children }: CartProviderProps)  => {
   };
 
   return (
-    <CartContext.Provider value={cartValue}>
-      {children} 
-    </CartContext.Provider>
+    <CartContext.Provider value={cartValue}>{children}</CartContext.Provider>
   );
-
 };
+

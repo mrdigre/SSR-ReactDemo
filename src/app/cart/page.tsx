@@ -1,8 +1,5 @@
-import Cart from "../components/Cart";
+import Cart from '../components/Cart';
 
-export default function CartPage () {
-    
-    return (
-        <Cart />
-    )
+export default function CartPage() {
+  return <Cart />;
 }
