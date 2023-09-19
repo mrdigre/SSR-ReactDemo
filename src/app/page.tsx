@@ -10,6 +10,7 @@ export default function HomePage({}: HomePageProps) {
       {<ImageBanner />}
       {/* @ts-expect-error Server Component */}
       <FeaturedProducts />
+      {/* @ts-expect-error Server Component */}
       <StoreBanner />
     </div>
   );
