@@ -4,8 +4,7 @@ import { useState, useEffect } from 'react';
 import CardComponent from '@/app/components/CardComponent';
 
 // default debounce function:
-// TODO: fix types
-const useDebounce = (value: any, delay: any) => {
+const useDebounce = (value, delay) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
   useEffect(() => {
@@ -38,8 +37,7 @@ export default function ProductSearch() {
       const data = await response.json();
 
       const searchQuery = search.toLowerCase();
-      // TODO: fix type
-      const filteredProducts = data.data.filter((product: any) =>
+      const filteredProducts = data.data.filter(product =>
         product.name.toLowerCase().includes(searchQuery)
       );
 

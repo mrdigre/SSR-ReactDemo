@@ -1,6 +1,4 @@
-export default function ProductsLayout(
-  { children }: any /** TODO: fix this type */
-) {
+export default function ProductsLayout({ children }) {
   return <>{children}</>;
 }
 
