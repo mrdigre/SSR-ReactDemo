@@ -2,7 +2,6 @@ import React from 'react';
 import { getProduct } from '@/lib/prisma';
 import Image from 'next/image';
 import CartButton from '@/app/components/CartButton';
-import { Product } from '@prisma/client';
 
 interface ProductPageProps {
   params: { id: string };
