@@ -1,22 +1,33 @@
-"use client";
-import Link from "next/link";
-import Image from "next/image";
-import { Fragment } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon, ShoppingCartIcon, UserIcon } from "@heroicons/react/24/outline";
-import { useCart } from "../contexts/CartContext";
+'use client';
+import Link from 'next/link';
+import Image from 'next/image';
+import React, { Fragment } from 'react';
+import { Disclosure, Menu, Transition } from '@headlessui/react';
+import {
+  Bars3Icon,
+  XMarkIcon,
+  ShoppingCartIcon,
+  UserIcon,
+} from '@heroicons/react/24/outline';
+import { useCart } from '../contexts/CartContext';
 
-const navigation = [
-  { label: "Products", route: "/products", current: false },
-  { label: "About", route: "/about", current: false },
-  { label: "Contact", route: "/contact", current: false },
-];
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+interface NavigationItem {
+  label: string;
+  route: string;
+  current: boolean;
 }
 
-export default function ResponsiveAppBar() {
+const navigation: NavigationItem[] = [
+  { label: 'Products', route: '/products', current: false },
+  { label: 'About', route: '/about', current: false },
+  { label: 'Contact', route: '/contact', current: false },
+];
+
+function classNames(...classes: string[]): string {
+  return classes.filter(Boolean).join(' ');
+}
+
+export default function ResponsiveAppBar(): React.ReactElement {
   const { totalQuantity } = useCart();
 
   return (
@@ -37,7 +48,7 @@ export default function ResponsiveAppBar() {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <Link href="./" key="./" className={classNames}>
+                <Link href="./" key="./">
                   <div className="flex flex-shrink-0 items-center">
                     <Image
                       className="block h-16 w-auto lg:hidden"
@@ -62,12 +73,10 @@ export default function ResponsiveAppBar() {
                         href={route}
                         key={route}
                         className={classNames(
-                          label.current
-                            ? "bg-gray-900 text-white"
-                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                          "rounded-md px-3 py-2 text-lg font-medium"
+                          'text-gray-300 hover:bg-gray-700 hover:text-white',
+                          'rounded-md px-3 py-2 text-lg font-medium'
                         )}
-                        aria-current={label.current ? "page" : undefined}
+                        aria-current={undefined}
                       >
                         {label}
                       </Link>
@@ -76,22 +85,17 @@ export default function ResponsiveAppBar() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                
-                <Link 
-                  href={"/cart"}
-                  key={"/cart"}
-                >
-                  
+                <Link href={'/cart'} key={'/cart'}>
                   <button
                     type="button"
                     className="rounded-full bg-gray-800 p-3  text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
                     <span className="sr-only">View notifications</span>
                     <ShoppingCartIcon className="h-8 w-8" aria-hidden="true" />
-                    
-                      {totalQuantity > 0 && (
-                        <span className="cart-count">{totalQuantity}</span>
-                      )}
+
+                    {totalQuantity > 0 && (
+                      <span className="cart-count">{totalQuantity}</span>
+                    )}
                   </button>
                 </Link>
 
@@ -114,39 +118,17 @@ export default function ResponsiveAppBar() {
                   >
                     <Menu.Items className="absolute right-0 z-10 mt-2 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
-                      <h1 className="text-black">USER LOGIN</h1>
+                        <h1 className="text-black">USER LOGIN</h1>
                       </Menu.Item>
-                      
-                      
                     </Menu.Items>
                   </Transition>
                 </Menu>
               </div>
             </div>
           </div>
-
-          <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2">
-              {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current
-                      ? "bg-gray-900 text-white"
-                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                    "block rounded-md px-3 py-2 text-base font-medium"
-                  )}
-                  aria-current={item.current ? "page" : undefined}
-                >
-                  {item.name}
-                </Disclosure.Button>
-              ))}
-            </div>
-          </Disclosure.Panel>
         </>
       )}
     </Disclosure>
   );
 }
+

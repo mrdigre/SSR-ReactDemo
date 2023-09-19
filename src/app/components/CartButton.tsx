@@ -1,19 +1,26 @@
-'use client'
+'use client';
 import React, { useState } from 'react';
 import { useCart } from '@/app/contexts/CartContext';
+import { Product } from '@prisma/client';
 
-const CartButton = ({ product }) => {
+interface CartButtonProps {
+  product: Product;
+}
+
+const CartButton = ({ product }: CartButtonProps) => {
   const { addToCart } = useCart(); // Context
   const [quantity, setQuantity] = useState(1); // State to track quantity
 
   const handleAddToCart = () => {
-    addToCart(product, quantity); 
-    
+    addToCart(product, quantity);
   };
 
   return (
     <div className="flex flex-col w-1/2 p-1">
-      <div className="flex text-gray-800 items-center mb-2 text-xs"> Select Quantity </div>
+      <div className="flex text-gray-800 items-center mb-2 text-xs">
+        {' '}
+        Select Quantity{' '}
+      </div>
       <div className="flex flex-row w-full items-center">
         <button
           className="z-10 rounded-l-lg font-bold bg-blue-500 hover:bg-blue-600 text-white border-gray-400 w-20 flex focus:outline-none cursor-pointer px-2 py-1"
@@ -32,14 +39,12 @@ const CartButton = ({ product }) => {
           type="number"
           min="1"
           value={quantity}
-          onChange={(e) => {
+          onChange={e => {
             const newQuantity = parseInt(e.target.value, 10);
             if (!isNaN(newQuantity) && newQuantity >= 1) {
               setQuantity(newQuantity); // Update the quantity state
             }
           }}
-          
-          
         />
 
         <button
@@ -63,3 +68,4 @@ const CartButton = ({ product }) => {
 };
 
 export default CartButton;
+

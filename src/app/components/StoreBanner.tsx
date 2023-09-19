@@ -1,6 +1,6 @@
-import Image from "next/image";
-import { getProducts } from "@/lib/prisma";
-import Link from "next/link";
+import Image from 'next/image';
+import { getProducts } from '@/lib/prisma';
+import Link from 'next/link';
 
 const StoreBanner = async () => {
   const products = await getProducts({ take: 2 });
@@ -14,8 +14,8 @@ const StoreBanner = async () => {
               The best tech hardware is here for you.
             </h1>
             <p className="mt-4 text-xl text-gray-900">
-              This year, our tech products will shelter you from the harsh elements of a world that doesn't care
-              if you live or die.
+              This year, our tech products will shelter you from the harsh
+              elements of a world that doesn&apos;t care if you live or die.
             </p>
           </div>
           <div>
@@ -27,7 +27,7 @@ const StoreBanner = async () => {
               >
                 <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
                   <div className="flex items-center space-x-6 lg:space-x-8">
-                    {products.map((product) => (
+                    {products.map(product => (
                       <div
                         key={product.id}
                         className="overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100"
@@ -60,3 +60,4 @@ const StoreBanner = async () => {
 };
 
 export default StoreBanner;
+
