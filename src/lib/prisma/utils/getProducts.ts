@@ -1,8 +1,6 @@
-import prisma from "../prisma";
+import prisma from '../prisma';
 
 export async function getProducts(args: any = {}) {
-  return prisma.product.findMany(
-    args,
-  );
+  return prisma.product.findMany(args);
 }
 

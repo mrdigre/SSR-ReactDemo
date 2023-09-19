@@ -2,9 +2,17 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import CardComponent from '@/app/components/CardComponent';
+import { Product } from '@prisma/client';
+
+type Value = string;
+type Delay = number;
+
+interface ProductProps {
+  product: Product;
+}
 
 // default debounce function:
-const useDebounce = (value, delay) => {
+const useDebounce = (value: Value, delay: Delay) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
   useEffect(() => {
@@ -21,8 +29,8 @@ const useDebounce = (value, delay) => {
 };
 
 export default function ProductSearch() {
-  const [search, setSearch] = useState('');
-  const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
+  const [search, setSearch] = useState<string>('');
+  const [filteredProducts, setFilteredProducts] = useState<ProductProps[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const debouncedSearch = useDebounce(search, 500);
@@ -33,7 +41,7 @@ export default function ProductSearch() {
     setIsLoading(true);
     const url = 'http://localhost:3000/api/products';
     try {
-      let response = await fetch(`${url}?q=${encodeURIComponent(search)}`);
+      const response = await fetch(`${url}?q=${encodeURIComponent(search)}`);
       const data = await response.json();
 
       const searchQuery = search.toLowerCase();
