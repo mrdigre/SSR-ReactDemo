@@ -38,6 +38,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.13",
     "@types/node": "^20.4.4",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
     "eslint-config-next": "^13.5.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-react": "^7.33.2",
@@ -51,4 +52,3 @@
     "seed": "ts-node ./scripts/rebuild_db.ts"
   }
 }
-
