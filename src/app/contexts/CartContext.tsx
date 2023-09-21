@@ -10,9 +10,8 @@ interface CartContextType {
   cartItems: CartProduct[];
   addToCart: (product: Product, quantity?: number) => void;
   removeFromCart: (productId: string) => void;
-  getQuantity: (productId: string) => void;
-  setQuantity: (productId: string, quantity: number) => void;
   totalQuantity: number;
+  modifyProductQuantity: (productId: string, quantity?: number) => void;
 }
 
 const CartContext = createContext<CartContextType | null>(null);
@@ -31,9 +30,6 @@ export const useCart = () => {
 
 export const CartProvider = ({ children }: CartProviderProps) => {
   const [cartItems, setCartItems] = useState<CartProduct[]>([]);
-  const [quantityMap, setQuantityMap] = useState<{
-    [productId: string]: number;
-  }>({});
 
   const addToCart = (product: Product, quantity = 1) => {
     const existingItemIndex = cartItems.findIndex(
@@ -54,12 +50,12 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     setCartItems(prevItems => prevItems.filter(item => item.id !== productId));
   };
 
-  const getQuantity = (productId: string) => {
-    return quantityMap[productId] || 1; // Default to 1 if quantity is not set
-  };
-
-  const setQuantity = (productId: string, quantity: number) => {
-    setQuantityMap({ ...quantityMap, [productId]: quantity });
+  const modifyProductQuantity = (productId: string, quantity: number) => {
+    setCartItems(prevItems =>
+      prevItems.map(item =>
+        item.id === productId ? { ...item, quantity } : item
+      )
+    );
   };
 
   const totalQuantity = cartItems.reduce(
@@ -71,9 +67,8 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     cartItems,
     addToCart,
     removeFromCart,
-    getQuantity,
-    setQuantity,
     totalQuantity,
+    modifyProductQuantity,
   };
 
   return (

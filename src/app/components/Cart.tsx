@@ -4,7 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const Cart = () => {
-  const { cartItems, removeFromCart, totalQuantity } = useCart();
+  const { cartItems, removeFromCart, totalQuantity, modifyProductQuantity } =
+    useCart();
   const showMessageIfEmptyCart = totalQuantity === 0;
 
   return (
@@ -45,7 +46,25 @@ const Cart = () => {
                 <div className="flex-1">
                   <h3 className="text-lg font-semibold">{item.name}</h3>
                   {/* <p className="text-gray-600 mb-2">Price: ${item.price.toFixed(2)}</p> */}
+
+                  <button
+                    onClick={() =>
+                      modifyProductQuantity(item.id, item.quantity - 1)
+                    }
+                  >
+                    -
+                  </button>
+
                   <p className="text-gray-600">Quantity: {item.quantity}</p>
+
+                  <button
+                    onClick={() =>
+                      modifyProductQuantity(item.id, item.quantity + 1)
+                    }
+                  >
+                    +
+                  </button>
+
                   <button
                     onClick={() => removeFromCart(item.id)}
                     className="text-red-500 mt-2"
