@@ -48,9 +48,11 @@ const Cart = () => {
                   {/* <p className="text-gray-600 mb-2">Price: ${item.price.toFixed(2)}</p> */}
 
                   <button
-                    onClick={() =>
-                      modifyProductQuantity(item.id, item.quantity - 1)
-                    }
+                    onClick={() => {
+                      if (item.quantity > 0) {
+                        modifyProductQuantity(item.id, item.quantity - 1);
+                      }
+                    }}
                   >
                     -
                   </button>
