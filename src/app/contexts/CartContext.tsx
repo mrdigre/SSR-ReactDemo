@@ -12,6 +12,7 @@ interface CartContextType {
   removeFromCart: (productId: string) => void;
   totalQuantity: number;
   modifyProductQuantity: (productId: string, quantity?: number) => void;
+  cartSubtotal: (ProductPrice: number, quantity: number) => number;
 }
 
 const CartContext = createContext<CartContextType | null>(null);
@@ -58,6 +59,11 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     );
   };
 
+  const cartSubtotal = cartItems.reduce(
+    (subtotal, item) => subtotal + item.price * item.quantity,
+    0
+  );
+
   const totalQuantity = cartItems.reduce(
     (total, item) => total + item.quantity,
     0
@@ -69,6 +75,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     removeFromCart,
     totalQuantity,
     modifyProductQuantity,
+    cartSubtotal,
   };
 
   return (

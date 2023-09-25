@@ -4,8 +4,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const Cart = () => {
-  const { cartItems, removeFromCart, totalQuantity, modifyProductQuantity } =
-    useCart();
+  const {
+    cartItems,
+    removeFromCart,
+    totalQuantity,
+    modifyProductQuantity,
+    cartSubtotal,
+  } = useCart();
   const showMessageIfEmptyCart = totalQuantity === 0;
 
   return (
@@ -91,7 +96,11 @@ const Cart = () => {
         </section>
       </main>
 
-      <div className="flex w-3/4 justify-end text-bold">Subtotal:</div>
+      {cartSubtotal !== 0 && (
+        <div className="flex w-3/4 justify-end font-bold">
+          Subtotal: ${cartSubtotal}
+        </div>
+      )}
     </div>
   );
 };
