@@ -39,7 +39,7 @@ const Cart = () => {
         <section>
           <ul className="space-y-2">
             {cartItems.map((item, index) => (
-              <li className="bg-white shadow-md p-4 rounded-md" key={index}>
+              <li className="bg-white shadow-md p-4 rounded-lg" key={index}>
                 <div className="flex flex-row w-full ">
                   <div className="flex flex-col items-center justify-center w-1/4">
                     <Image
@@ -85,7 +85,7 @@ const Cart = () => {
                         onClick={() => removeFromCart(item.id)}
                         className="text-red-500 ml-4"
                       >
-                        Remove
+                        Remove Product
                       </button>
                     </div>
                   </div>
@@ -96,7 +96,7 @@ const Cart = () => {
         </section>
       </main>
 
-      {cartSubtotal !== 0 && (
+      {cartSubtotal != 0 && (
         <div className="flex w-3/4 justify-end font-bold">
           Subtotal: ${cartSubtotal}
         </div>

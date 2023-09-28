@@ -59,10 +59,12 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     );
   };
 
-  const cartSubtotal = cartItems.reduce(
-    (subtotal, item) => subtotal + item.price * item.quantity,
-    0
-  );
+  const cartSubtotal = parseFloat(
+    cartItems.reduce(
+      (subtotal, item) => subtotal + item.price * item.quantity,
+      0
+    )
+  ).toFixed(2);
 
   const totalQuantity = cartItems.reduce(
     (total, item) => total + item.quantity,
