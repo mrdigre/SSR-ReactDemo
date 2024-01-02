@@ -1,4 +1,8 @@
-export default function ProductsLayout({ children }) {
-  return <>{children}</>;
+interface ProductLayoutProps {
+  children: React.ReactElement;
+}
+
+export default function ProductsLayout(props: ProductLayoutProps) {
+  return <>{props.children}</>;
 }
 

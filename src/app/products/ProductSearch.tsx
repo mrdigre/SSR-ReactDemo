@@ -7,10 +7,6 @@ import { Product } from '@prisma/client';
 type Value = string;
 type Delay = number;
 
-interface ProductProps {
-  product: Product;
-}
-
 // default debounce function:
 const useDebounce = (value: Value, delay: Delay) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
@@ -30,7 +26,7 @@ const useDebounce = (value: Value, delay: Delay) => {
 
 export default function ProductSearch() {
   const [search, setSearch] = useState<string>('');
-  const [filteredProducts, setFilteredProducts] = useState<ProductProps[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const debouncedSearch = useDebounce(search, 500);
@@ -45,7 +41,7 @@ export default function ProductSearch() {
       const data = await response.json();
 
       const searchQuery = search.toLowerCase();
-      const filteredProducts = data.data.filter(product =>
+      const filteredProducts = data.data.filter((product: Product) =>
         product.name.toLowerCase().includes(searchQuery)
       );
 
