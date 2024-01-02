@@ -15,7 +15,7 @@ const ProductPage = async ({ params }: ProductPageProps) => {
   return (
     <div className="mt-4 bg-gray-200 w-full">
       <div className="flex flex-col h-2/3 md:flex-row -mx-4 mt-6 p-6">
-        <div className="flex justify-center items-center md:flex-1 bg-white shadow-lg rounded-lg ring-2">
+        <div className="flex justify-center items-center md:flex-1 bg-white shadow-lg rounded-xl ring-2">
           <div className="flex items-center justify-center p-4 rounded-lg ">
             <Image
               src={fetchedProduct.image}
